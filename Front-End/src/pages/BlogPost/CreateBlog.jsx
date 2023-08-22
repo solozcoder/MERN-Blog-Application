@@ -9,7 +9,7 @@ const CreateBlog = () => {
   // Variable Post
   const titleRef = useRef("");
   const captionRef = useRef("");
-  const contentRef = useRef("");
+  // const contentRef = useRef("");
   const [content, setContent] = useState("");
 
   // Set content from children
