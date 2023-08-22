@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
+@keyframes moving-gradient {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(0);
+  }
+  100% {
+    background-position: 100% 50%;
+    transform: rotate(360deg);
+  }
+}
+
+.gradient-box {
+  position: relative;
+  width: 200px; /* Adjust the width as needed */
+  height: 200px; /* Adjust the height as needed */
+  border-radius: 0.5rem; /* Rounded corners */
+  overflow: hidden;
+  animation: moving-gradient 6s linear infinite; /* Adjust the duration (e.g., 10s) */
+}
+.gradient-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, #ff5151, #8234ff, #ffa043);
+  background-size: 200% 200%;
+  animation: inherit;
+}
+
+.blur-bg::before,
+.blur-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(10px); /* Adjust the blur amount as needed */
+  z-index: -1;
+}
+.blur-bg::before {
+  background: linear-gradient(45deg, #ff6b6b, #3b82f6, #ffa043);
+}
+.blur-bg::after {
+  background: linear-gradient(45deg, #3b82f6, #ff6b6b, #3b82f6);
+  opacity: 0.6; /* Adjust the overlay opacity as needed */
+}
